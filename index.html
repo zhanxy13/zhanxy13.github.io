@@ -286,6 +286,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/decision-tree.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xuyi Zhan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xuyi's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/decision-tree.html" itemprop="url">
+                  decision tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-22 21:23:41 / Modified: 21:30:43" itemprop="dateCreated datePublished" datetime="2018-11-22T21:23:41+08:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>决策树</strong>：非参数，监督学习<br>x<sub>i</sub>的信息定义为</p>
+<p><img src="/eq1.png" alt="log"></p>
+<p><strong>熵（Entropy）</strong>：用信息的期望表示复杂度：</p>
+<p><img src="/eq2.png" alt="log"></p>
+<p>经验熵：概率用最大似然估计</p>
+<p><strong>信息增益（Information Gain）</strong>：衡量复杂度的变化（base-new)<br>特征A对数据集D的信息增益</p>
+<p><img src="/eq3.png" alt="log"></p>
+<p><strong>信息增益比</strong>：</p>
+<p><img src="/eq4.png" alt="log"></p>
+<h2 id="决策树的构造"><a href="#决策树的构造" class="headerlink" title="决策树的构造"></a>决策树的构造</h2><p>选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去</p>
+<blockquote>
+<p> 停止分裂的条件：</p>
+<p>（1）最小节点数</p>
+<p>当节点的数据量小于一个指定的数量时，不继续分裂。两个原因：一是数据量较少时，再做分裂容易强化噪声数据的作用；二是降低树生长的复杂性。提前结束分裂一定程度上有利于降低过拟合的影响。</p>
+<p>（2）熵或者基尼值小于阈值。</p>
+<p>由上述可知，熵和基尼值的大小表示数据的复杂程度，当熵或者基尼值过小时，表示数据的纯度比较大，如果熵或者基尼值小于一定程度时，节点停止分裂。</p>
+<p>（3）决策树的深度达到指定的条件</p>
+<p> 节点的深度可以理解为节点与决策树跟节点的距离，如根节点的子节点的深度为1，因为这些节点与跟节点的距离为1，子节点的深度要比父节点的深度大1。决策树的深度是所有叶子节点的最大深度，当深度到达指定的上限大小时，停止分裂。</p>
+<p>（4）所有特征已经使用完毕，不能继续进行分裂。</p>
+<p>被动式停止分裂的条件，当已经没有可分的属性时，直接将当前节点设置为叶子节点。</p>
+</blockquote>
+<p>常用算法：</p>
+<p>ID3：离散型属性；选择特征时用信息增益作为标准；偏向选择取值较多的特征</p>
+<p>ID4.5：离散、连续；信息增益比</p>
+<p>CART：离散、连续；分类：基尼系数（Gini）；回归：平方误差最小化准则；</p>
+<p>参考资料：</p>
+<p><a href="https://www.cnblogs.com/yonghao/p/5096358.html" target="_blank" rel="noopener">决策树-ID3</a><br><a href="https://blog.csdn.net/jiaoyangwm/article/details/79525237#323-id3c45cart%E7%9A%84%E5%8C%BA%E5%88%AB" target="_blank" rel="noopener">机器学习实战-决策树</a> </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Graphviz.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -471,7 +637,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
