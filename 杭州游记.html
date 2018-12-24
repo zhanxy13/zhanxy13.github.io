@@ -108,29 +108,30 @@
 
 
 
-  <meta name="description" content="基本概念决策树：非参数，监督学习xi的信息定义为  熵（Entropy）：用信息的期望表示复杂度：  经验熵：概率用最大似然估计 信息增益（Information Gain）：衡量复杂度的变化（base-new)特征A对数据集D的信息增益  信息增益比：  决策树的构造选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去   停止分裂的条件： （1）最小节点数 当节点的数据量小于一个指">
+  <meta name="description" content="不知道为啥在年末突然想写年初的旅行。 在杭州待了两周（1.22-2.2），主要活动范围是滨江区，一个到处是大大小小科技园的区。其实这次的主要目的不是玩，是实践。但是实践的事情就先按下不表了，还是玩的事值得写一写。 西湖和灵隐寺在杭州遇上了一场大雪（比在北京经历过的每一场雪都要大），于是我们一行人果断翘班（决定十分正确），在雪天去了西湖和灵隐寺。  &amp;lt;!--南方人看到这种程度的雪还是比较激动-">
+<meta name="keywords" content="游记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="决策树（一）">
-<meta property="og:url" content="http://yoursite.com/decision-tree.html">
+<meta property="og:title" content="杭州游记">
+<meta property="og:url" content="http://yoursite.com/杭州游记.html">
 <meta property="og:site_name" content="XY&#39;s Note">
-<meta property="og:description" content="基本概念决策树：非参数，监督学习xi的信息定义为  熵（Entropy）：用信息的期望表示复杂度：  经验熵：概率用最大似然估计 信息增益（Information Gain）：衡量复杂度的变化（base-new)特征A对数据集D的信息增益  信息增益比：  决策树的构造选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去   停止分裂的条件： （1）最小节点数 当节点的数据量小于一个指">
+<meta property="og:description" content="不知道为啥在年末突然想写年初的旅行。 在杭州待了两周（1.22-2.2），主要活动范围是滨江区，一个到处是大大小小科技园的区。其实这次的主要目的不是玩，是实践。但是实践的事情就先按下不表了，还是玩的事值得写一写。 西湖和灵隐寺在杭州遇上了一场大雪（比在北京经历过的每一场雪都要大），于是我们一行人果断翘班（决定十分正确），在雪天去了西湖和灵隐寺。  &amp;lt;!--南方人看到这种程度的雪还是比较激动-">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/eq1.png">
-<meta property="og:image" content="http://yoursite.com/eq2.png">
-<meta property="og:image" content="http://yoursite.com/eq3.png">
-<meta property="og:image" content="http://yoursite.com/eq4.png">
-<meta property="og:updated_time" content="2018-11-22T14:55:57.824Z">
+<meta property="og:image" content="http://yoursite.com/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2.jpg">
+<meta property="og:image" content="http://yoursite.com/4.jpg">
+<meta property="og:image" content="http://yoursite.com/3.jpg">
+<meta property="og:updated_time" content="2018-12-24T14:35:47.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="决策树（一）">
-<meta name="twitter:description" content="基本概念决策树：非参数，监督学习xi的信息定义为  熵（Entropy）：用信息的期望表示复杂度：  经验熵：概率用最大似然估计 信息增益（Information Gain）：衡量复杂度的变化（base-new)特征A对数据集D的信息增益  信息增益比：  决策树的构造选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去   停止分裂的条件： （1）最小节点数 当节点的数据量小于一个指">
-<meta name="twitter:image" content="http://yoursite.com/eq1.png">
+<meta name="twitter:title" content="杭州游记">
+<meta name="twitter:description" content="不知道为啥在年末突然想写年初的旅行。 在杭州待了两周（1.22-2.2），主要活动范围是滨江区，一个到处是大大小小科技园的区。其实这次的主要目的不是玩，是实践。但是实践的事情就先按下不表了，还是玩的事值得写一写。 西湖和灵隐寺在杭州遇上了一场大雪（比在北京经历过的每一场雪都要大），于是我们一行人果断翘班（决定十分正确），在雪天去了西湖和灵隐寺。  &amp;lt;!--南方人看到这种程度的雪还是比较激动-">
+<meta name="twitter:image" content="http://yoursite.com/1.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/decision-tree.html"/>
+  <link rel="canonical" href="http://yoursite.com/杭州游记.html"/>
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title>决策树（一） | XY's Note</title>
+  <title>杭州游记 | XY's Note</title>
   
 
 
@@ -294,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/decision-tree.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/杭州游记.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xuyi Zhan">
@@ -311,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">决策树（一）
+          <h1 class="post-title" itemprop="name headline">杭州游记
               
             
           </h1>
@@ -336,7 +337,7 @@
                 
               
 
-              <time title="Created: 2018-11-22 21:23:41 / Modified: 22:55:57" itemprop="dateCreated datePublished" datetime="2018-11-22T21:23:41+08:00">2018-11-22</time>
+              <time title="Created: 2018-12-24 21:25:30 / Modified: 22:35:47" itemprop="dateCreated datePublished" datetime="2018-12-24T21:25:30+08:00">2018-12-24</time>
             
 
             
@@ -374,33 +375,23 @@
       
 
       
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>决策树</strong>：非参数，监督学习<br>x<sub>i</sub>的信息定义为</p>
-<p><img src="/eq1.png" alt=""></p>
-<p><strong>熵（Entropy）</strong>：用信息的期望表示复杂度：</p>
-<p><img src="/eq2.png" alt=""></p>
-<p>经验熵：概率用最大似然估计</p>
-<p><strong>信息增益（Information Gain）</strong>：衡量复杂度的变化（base-new)<br>特征A对数据集D的信息增益</p>
-<p><img src="/eq3.png" alt=""></p>
-<p><strong>信息增益比</strong>：</p>
-<p><img src="/eq4.png" alt=""></p>
-<h2 id="决策树的构造"><a href="#决策树的构造" class="headerlink" title="决策树的构造"></a>决策树的构造</h2><p>选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去</p>
-<blockquote>
-<p> 停止分裂的条件：</p>
-<p>（1）最小节点数</p>
-<p>当节点的数据量小于一个指定的数量时，不继续分裂。两个原因：一是数据量较少时，再做分裂容易强化噪声数据的作用；二是降低树生长的复杂性。提前结束分裂一定程度上有利于降低过拟合的影响。</p>
-<p>（2）熵或者基尼值小于阈值。</p>
-<p>由上述可知，熵和基尼值的大小表示数据的复杂程度，当熵或者基尼值过小时，表示数据的纯度比较大，如果熵或者基尼值小于一定程度时，节点停止分裂。</p>
-<p>（3）决策树的深度达到指定的条件</p>
-<p> 节点的深度可以理解为节点与决策树跟节点的距离，如根节点的子节点的深度为1，因为这些节点与跟节点的距离为1，子节点的深度要比父节点的深度大1。决策树的深度是所有叶子节点的最大深度，当深度到达指定的上限大小时，停止分裂。</p>
-<p>（4）所有特征已经使用完毕，不能继续进行分裂。</p>
-<p>被动式停止分裂的条件，当已经没有可分的属性时，直接将当前节点设置为叶子节点。</p>
-</blockquote>
-<p>常用算法：</p>
-<p>ID3：离散型属性；选择特征时用信息增益作为标准；偏向选择取值较多的特征</p>
-<p>ID4.5：离散、连续；信息增益比</p>
-<p>CART：离散、连续；分类：基尼系数（Gini）；回归：平方误差最小化准则；</p>
-<p>参考资料：</p>
-<p><a href="https://www.cnblogs.com/yonghao/p/5096358.html" target="_blank" rel="noopener">决策树-ID3</a><br><a href="https://blog.csdn.net/jiaoyangwm/article/details/79525237#323-id3c45cart%E7%9A%84%E5%8C%BA%E5%88%AB" target="_blank" rel="noopener">机器学习实战-决策树</a> </p>
+        <p>不知道为啥在年末突然想写年初的旅行。</p>
+<p>在杭州待了两周（1.22-2.2），主要活动范围是滨江区，一个到处是大大小小科技园的区。其实这次的主要目的不是玩，是实践。但是实践的事情就先按下不表了，还是玩的事值得写一写。</p>
+<h2 id="西湖和灵隐寺"><a href="#西湖和灵隐寺" class="headerlink" title="西湖和灵隐寺"></a>西湖和灵隐寺</h2><p>在杭州遇上了一场大雪（比在北京经历过的每一场雪都要大），于是我们一行人果断翘班（决定十分正确），在雪天去了西湖和灵隐寺。</p>
+<p><img src="/1.jpg" alt=""></p>
+<pre><code>&lt;!--南方人看到这种程度的雪还是比较激动--!&gt;
+</code></pre><p><img src="/2.jpg" alt=""></p>
+<pre><code>&lt;!--灵隐寺雪景--!&gt;
+</code></pre><p>到西湖的时候已经接近傍晚了，天色已经不太亮，游客也很多，大家都慕名去看“断桥残雪”。一开始觉得景色也就那样，有一块石碑写着断桥残雪的典故，实际上只是一座再普通不过的桥。可是后来走到湖中间，看向已经亮起灯的湖边，天呐完全被惊艳了，橙色的灯光映着雪，稍远处是蒙着雪的山，天色是暗色的蓝，我们一群人真的忍不住惊呼并疯狂拍照……</p>
+<p><img src="/4.jpg" alt="西湖"></p>
+<p><img src="/3.jpg" alt=""></p>
+<p>在西湖一直逛到天黑，同行小伙伴穿得不够，都已经要冻僵了（不要太忽视南方的冷），于是我们赶紧找一家大众点评上评分不错的杭帮菜吃晚饭。吹完风喝上热腾腾的汤，大家又是惊呼幸福。西湖挺值得一去再去的（另一个原因是确实也没别的地方去了），后来我们在非雪天又再去了一次，西湖一年四季都很好看应该是真的了。</p>
+<p>晚上的参观活动就是看了一次钱江新城灯光秀和西湖音乐喷泉，喷泉不错（悄咪咪地说我觉得比济南的要好），有一首是I will always love you，音乐一起，我鸡皮疙瘩也起来了。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>革命烈士纪念碑</p>
+<p>浙江美术馆</p>
+<p>一到杭州就发现，不愧是马云的地盘，支付宝普及程度和便利程度甩北京好几条街。在杭州期间，我们逛了好几个“天街”系列的购物中心（因为晚上实在太无聊了），我觉得挺好逛的，因为店的种类很多，不是只有单一的服装店和饮食店之类的。还有一个不得不提的经历…有一天逛完商场两个人手机都冻关机了，然后在杭州街头极限操作跟滴滴司机接上头。另外在杭州几乎每天喝奶茶，比北京便宜还不用排队……</p>
+<p>在杭州一开始住的是实践公司安排的员工宿舍，有一天隔壁宿舍的空调烧……了……场面十分可怕……火烧完了熄了我们才知道……幸好人不在里面……这也是在杭州浓墨重彩的一笔了，回想起来还是有点后怕的。</p>
+<p>最后这篇莫名其妙的游记不知道咋总结时候，我想起杭州出租车司机的话：“赶紧在杭州买房，之前G20涨了一次，后面开亚运会还得涨一次。”（我猜除了杭州人没人知道杭州要开亚运会吧xD）</p>
 
       
     </div>
@@ -419,6 +410,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/游记/" rel="tag"># 游记</a>
+          
+        </div>
+      
 
       
       
@@ -428,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Graphviz.html" rel="next" title="决策树可视化-Graphviz中文乱码问题">
-                <i class="fa fa-chevron-left"></i> 决策树可视化-Graphviz中文乱码问题
+              <a href="/20181122.html" rel="next" title="“公关”五法">
+                <i class="fa fa-chevron-left"></i> “公关”五法
               </a>
             
           </div>
@@ -437,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/20181122.html" rel="prev" title="“公关”五法">
-                “公关”五法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,7 +566,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#西湖和灵隐寺"><span class="nav-number">1.</span> <span class="nav-text">西湖和灵隐寺</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">2.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
@@ -735,9 +728,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/decision-tree.html';
-        this.page.identifier = 'decision-tree.html';
-        this.page.title = '决策树（一）';
+        this.page.url = 'http://yoursite.com/杭州游记.html';
+        this.page.identifier = '杭州游记.html';
+        this.page.title = '杭州游记';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
