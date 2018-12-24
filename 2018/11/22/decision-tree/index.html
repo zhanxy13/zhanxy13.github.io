@@ -108,24 +108,30 @@
 
 
 
-  <meta name="description" content="使用python进行决策树分析及可视化1234567891011121314151617181920212223import pydotplusfrom sklearn import treefrom sklearn.externals.six import StringIOfrom sklearn.model_selection import train_test_split#生成训练集 X_t">
+  <meta name="description" content="基本概念决策树：非参数，监督学习xi的信息定义为  熵（Entropy）：用信息的期望表示复杂度：  经验熵：概率用最大似然估计 信息增益（Information Gain）：衡量复杂度的变化（base-new)特征A对数据集D的信息增益  信息增益比：  决策树的构造选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去   停止分裂的条件： （1）最小节点数 当节点的数据量小于一个指">
+<meta name="keywords" content="笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="决策树可视化-Graphviz中文乱码问题">
-<meta property="og:url" content="http://yoursite.com/Graphviz.html">
+<meta property="og:title" content="决策树（一）">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/decision-tree/index.html">
 <meta property="og:site_name" content="XY&#39;s Note">
-<meta property="og:description" content="使用python进行决策树分析及可视化1234567891011121314151617181920212223import pydotplusfrom sklearn import treefrom sklearn.externals.six import StringIOfrom sklearn.model_selection import train_test_split#生成训练集 X_t">
+<meta property="og:description" content="基本概念决策树：非参数，监督学习xi的信息定义为  熵（Entropy）：用信息的期望表示复杂度：  经验熵：概率用最大似然估计 信息增益（Information Gain）：衡量复杂度的变化（base-new)特征A对数据集D的信息增益  信息增益比：  决策树的构造选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去   停止分裂的条件： （1）最小节点数 当节点的数据量小于一个指">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-13T12:10:17.418Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/22/decision-tree/eq1.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/22/decision-tree/eq2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/22/decision-tree/eq3.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/22/decision-tree/eq4.png">
+<meta property="og:updated_time" content="2018-12-24T15:06:54.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="决策树可视化-Graphviz中文乱码问题">
-<meta name="twitter:description" content="使用python进行决策树分析及可视化1234567891011121314151617181920212223import pydotplusfrom sklearn import treefrom sklearn.externals.six import StringIOfrom sklearn.model_selection import train_test_split#生成训练集 X_t">
+<meta name="twitter:title" content="决策树（一）">
+<meta name="twitter:description" content="基本概念决策树：非参数，监督学习xi的信息定义为  熵（Entropy）：用信息的期望表示复杂度：  经验熵：概率用最大似然估计 信息增益（Information Gain）：衡量复杂度的变化（base-new)特征A对数据集D的信息增益  信息增益比：  决策树的构造选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去   停止分裂的条件： （1）最小节点数 当节点的数据量小于一个指">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/22/decision-tree/eq1.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/Graphviz.html"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/22/decision-tree/"/>
 
 
 
@@ -135,7 +141,7 @@
   };
 </script>
 
-  <title>决策树可视化-Graphviz中文乱码问题 | XY's Note</title>
+  <title>决策树（一） | XY's Note</title>
   
 
 
@@ -289,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Graphviz.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/decision-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xuyi Zhan">
@@ -306,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">决策树可视化-Graphviz中文乱码问题
+          <h1 class="post-title" itemprop="name headline">决策树（一）
               
             
           </h1>
@@ -331,12 +337,24 @@
                 
               
 
-              <time title="Created: 2018-08-13 17:49:02 / Modified: 20:10:17" itemprop="dateCreated datePublished" datetime="2018-08-13T17:49:02+08:00">2018-08-13</time>
+              <time title="Created: 2018-11-22 21:23:41" itemprop="dateCreated datePublished" datetime="2018-11-22T21:23:41+08:00">2018-11-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-24 23:06:54" itemprop="dateModified" datetime="2018-12-24T23:06:54+08:00">2018-12-24</time>
               
             
           </span>
@@ -369,24 +387,33 @@
       
 
       
-        <h2 id="使用python进行决策树分析及可视化"><a href="#使用python进行决策树分析及可视化" class="headerlink" title="使用python进行决策树分析及可视化"></a>使用python进行决策树分析及可视化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="keyword">from</span> sklearn.externals.six <span class="keyword">import</span> StringIO</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="comment">#生成训练集</span></span><br><span class="line"> X_train,X_test,Y_train,Y_test = train_test_split(x,y,test_size=<span class="number">0.2</span>)</span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(X_train,Y_train)</span><br><span class="line"><span class="comment">#测试</span></span><br><span class="line">Y_predict = clf.predict(X_test)</span><br><span class="line">matchCount = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(Y_predict)):</span><br><span class="line">    <span class="keyword">if</span> Y_predict[i] == Y_test[i]:</span><br><span class="line">        matchCount += <span class="number">1</span></span><br><span class="line">accuracy = float(matchCount/len(Y_predict))</span><br><span class="line"><span class="comment">#可视化</span></span><br><span class="line">dot_data = StringIO()</span><br><span class="line">tree.export_graphviz(clf,out_file = dot_data,feature_names=feature_name,</span><br><span class="line">                     class_names=target_name,filled=<span class="keyword">True</span>,rounded=<span class="keyword">True</span>,</span><br><span class="line">                     special_characters=<span class="keyword">True</span>)</span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data.getvalue())</span><br><span class="line">graph.write_pdf(<span class="string">"Tree.pdf"</span>)</span><br></pre></td></tr></table></figure>
-<p>在使用Graphviz进行决策树可视化的过程中遇到一个问题：export_graphviz似乎不支持中文，当feature_name包含中文时，导出的决策树pdf中文都是乱码。查了一些资料，说是要把源文件保存为UTF-8的格式，但在export_graphviz时不知道该怎么改。<br>目前试了以下两种方法有效。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>将决策树保存为.dot文件，<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可视化</span></span><br><span class="line">tree.export_graphviz(clf,out_file = dot_data.dot,feature_names=feature_name,</span><br><span class="line">                     class_names=target_name,filled=<span class="keyword">True</span>,rounded=<span class="keyword">True</span>,</span><br><span class="line">                     special_characters=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure></p>
-<p>并打开.dot文件编辑，将字体改为中文字体并保存(需输入中文字体的英文名，如”FangSong”或”Microsoft Yahei”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node [shape=box, style=&quot;filled, rounded&quot;, color=&quot;black&quot;, fontname=&quot;FangSong&quot;]</span><br></pre></td></tr></table></figure></p>
-<p>在命令行画图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dot -Tpdf dot_data.dot -o dot_data.pdf</span><br></pre></td></tr></table></figure></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>比第一种方法简单，输出svg时中文显示正常</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#可视化</span></span><br><span class="line">dot_data = StringIO()</span><br><span class="line">tree.export_graphviz(clf,out_file = dot_data,feature_names=feature_name,</span><br><span class="line">                     class_names=target_name,filled=<span class="keyword">True</span>,rounded=<span class="keyword">True</span>,</span><br><span class="line">                     special_characters=<span class="keyword">True</span>)</span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data.getvalue())</span><br><span class="line">graph.write_svg(<span class="string">"Tree.svg"</span>)</span><br></pre></td></tr></table></figure>
-<p>网页打开svg文件可另存为其他格式。</p>
-<h3 id="我尝试了但没有成功的方法"><a href="#我尝试了但没有成功的方法" class="headerlink" title="我尝试了但没有成功的方法"></a>我尝试了但没有成功的方法</h3><p>找到安装路径在 Graphviz\etc\fonts\fonts.conf，找到以下这行： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dir&gt;#FONTDIR#&lt;/dir&gt;</span><br></pre></td></tr></table></figure>
-<p>改成 Windows 字型路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dir&gt;C:\WINDOWS\Fonts&lt;/dir&gt;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>决策树</strong>：非参数，监督学习<br>x<sub>i</sub>的信息定义为</p>
+<p><img src="/2018/11/22/decision-tree/eq1.png" alt=""></p>
+<p><strong>熵（Entropy）</strong>：用信息的期望表示复杂度：</p>
+<p><img src="/2018/11/22/decision-tree/eq2.png" alt=""></p>
+<p>经验熵：概率用最大似然估计</p>
+<p><strong>信息增益（Information Gain）</strong>：衡量复杂度的变化（base-new)<br>特征A对数据集D的信息增益</p>
+<p><img src="/2018/11/22/decision-tree/eq3.png" alt=""></p>
+<p><strong>信息增益比</strong>：</p>
+<p><img src="/2018/11/22/decision-tree/eq4.png" alt=""></p>
+<h2 id="决策树的构造"><a href="#决策树的构造" class="headerlink" title="决策树的构造"></a>决策树的构造</h2><p>选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去</p>
+<blockquote>
+<p> 停止分裂的条件：</p>
+<p>（1）最小节点数</p>
+<p>当节点的数据量小于一个指定的数量时，不继续分裂。两个原因：一是数据量较少时，再做分裂容易强化噪声数据的作用；二是降低树生长的复杂性。提前结束分裂一定程度上有利于降低过拟合的影响。</p>
+<p>（2）熵或者基尼值小于阈值。</p>
+<p>由上述可知，熵和基尼值的大小表示数据的复杂程度，当熵或者基尼值过小时，表示数据的纯度比较大，如果熵或者基尼值小于一定程度时，节点停止分裂。</p>
+<p>（3）决策树的深度达到指定的条件</p>
+<p> 节点的深度可以理解为节点与决策树跟节点的距离，如根节点的子节点的深度为1，因为这些节点与跟节点的距离为1，子节点的深度要比父节点的深度大1。决策树的深度是所有叶子节点的最大深度，当深度到达指定的上限大小时，停止分裂。</p>
+<p>（4）所有特征已经使用完毕，不能继续进行分裂。</p>
+<p>被动式停止分裂的条件，当已经没有可分的属性时，直接将当前节点设置为叶子节点。</p>
+</blockquote>
+<p>常用算法：</p>
+<p>ID3：离散型属性；选择特征时用信息增益作为标准；偏向选择取值较多的特征</p>
+<p>ID4.5：离散、连续；信息增益比</p>
+<p>CART：离散、连续；分类：基尼系数（Gini）；回归：平方误差最小化准则；</p>
 <p>参考资料：</p>
-<ul>
-<li><p><a href="http://lockriver.blog.163.com/blog/static/487232242010101761749383/" target="_blank" rel="noopener">Graphviz使用简介(中文乱码的问题)</a></p>
-</li>
-<li><p><a href="https://stackoverflow.com/questions/6743382/graphviz-not-supporting-utf-8-encoding" target="_blank" rel="noopener">Graphviz not supporting UTF-8 encoding</a></p>
-</li>
-</ul>
+<p><a href="https://www.cnblogs.com/yonghao/p/5096358.html" target="_blank" rel="noopener">决策树-ID3</a><br><a href="https://blog.csdn.net/jiaoyangwm/article/details/79525237#323-id3c45cart%E7%9A%84%E5%8C%BA%E5%88%AB" target="_blank" rel="noopener">机器学习实战-决策树</a> </p>
 
       
     </div>
@@ -405,6 +432,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
 
       
       
@@ -414,14 +447,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/13/Graphviz/" rel="next" title="决策树可视化-Graphviz中文乱码问题">
+                <i class="fa fa-chevron-left"></i> 决策树可视化-Graphviz中文乱码问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/decision-tree.html" rel="prev" title="决策树（一）">
-                决策树（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/22/20181122/" rel="prev" title="“公关”五法">
+                “公关”五法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +556,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -555,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用python进行决策树分析及可视化"><span class="nav-number">1.</span> <span class="nav-text">使用python进行决策树分析及可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">2.2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我尝试了但没有成功的方法"><span class="nav-number">2.3.</span> <span class="nav-text">我尝试了但没有成功的方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树的构造"><span class="nav-number">2.</span> <span class="nav-text">决策树的构造</span></a></li></ol></div>
             
 
           </div>
@@ -717,9 +758,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/Graphviz.html';
-        this.page.identifier = 'Graphviz.html';
-        this.page.title = '决策树可视化-Graphviz中文乱码问题';
+        this.page.url = 'http://yoursite.com/2018/11/22/decision-tree/';
+        this.page.identifier = '2018/11/22/decision-tree/';
+        this.page.title = '决策树（一）';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
