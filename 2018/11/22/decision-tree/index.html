@@ -201,15 +201,16 @@
 
       
         <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>决策树</strong>：非参数，监督学习<br>x<sub>i</sub>的信息定义为</p>
-<p><img src="/2018/11/22/decision-tree/eq1.png" alt></p>
+<p><img src="/2018/11/22/decision-tree/eq1.png"></p>
 <span id="more"></span>
+
 <p><strong>熵（Entropy）</strong>：用信息的期望表示复杂度：</p>
-<p><img src="/2018/11/22/decision-tree/eq2.png" alt></p>
+<p><img src="/2018/11/22/decision-tree/eq2.png"></p>
 <p>经验熵：概率用最大似然估计</p>
 <p><strong>信息增益（Information Gain）</strong>：衡量复杂度的变化（base-new)<br>特征A对数据集D的信息增益</p>
-<p><img src="/2018/11/22/decision-tree/eq3.png" alt></p>
+<p><img src="/2018/11/22/decision-tree/eq3.png"></p>
 <p><strong>信息增益比</strong>：</p>
-<p><img src="/2018/11/22/decision-tree/eq4.png" alt></p>
+<p><img src="/2018/11/22/decision-tree/eq4.png"></p>
 <h2 id="决策树的构造"><a href="#决策树的构造" class="headerlink" title="决策树的构造"></a>决策树的构造</h2><p>选择特征对数据进行分割，递归分割，直到每个子集都被分到叶节点上去</p>
 <blockquote>
 <p> 停止分裂的条件：</p>
