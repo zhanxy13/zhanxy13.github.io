@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="实现并行计算的方式 有些工具箱内嵌多线程 Parallel Computing Toolbox MATLAB Parallel Server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matlab并行计算">
+<meta property="og:url" content="http://yoursite.com/2020/02/15/matlab-parallel/index.html">
+<meta property="og:site_name" content="xy&#39;s blog">
+<meta property="og:description" content="实现并行计算的方式 有些工具箱内嵌多线程 Parallel Computing Toolbox MATLAB Parallel Server">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-15T04:35:31.000Z">
+<meta property="article:modified_time" content="2020-02-15T05:30:51.941Z">
+<meta property="article:author" content="xyz">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/15/matlab-parallel/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Matlab并行计算 | xy's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xy's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/matlab-parallel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xyz">
+      <meta itemprop="description" content="Connect the dots">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xy's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Matlab并行计算
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-15 12:35:31 / Modified: 13:30:51" itemprop="dateCreated datePublished" datetime="2020-02-15T12:35:31+08:00">2020-02-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="实现并行计算的方式"><a href="#实现并行计算的方式" class="headerlink" title="实现并行计算的方式"></a>实现并行计算的方式</h1><ol>
+<li>有些工具箱内嵌多线程</li>
+<li>Parallel Computing Toolbox</li>
+<li>MATLAB Parallel Server</li>
+</ol>
+<span id="more"></span>
+<h2 id="Parallel-Computing-Toolbox"><a href="#Parallel-Computing-Toolbox" class="headerlink" title="Parallel Computing Toolbox"></a>Parallel Computing Toolbox</h2><ol>
+<li><p>下载工具箱</p>
+</li>
+<li><p>初始化Matlab并行计算环境：<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/parallel-computing/parpool.html">parpool</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parpool(poolsize)</span><br><span class="line">MyPool=parpool(2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终止并行计算环境<br>（1）parallel设置中“终止时间” 或（2）命令行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete(MyPool)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="并行for循环：parfor"><a href="#并行for循环：parfor" class="headerlink" title="并行for循环：parfor"></a>并行for循环：parfor</h1><p>parfor将循环迭代分组，每个worker执行一部分</p>
+<h2 id="error1：未找到库"><a href="#error1：未找到库" class="headerlink" title="error1：未找到库"></a>error1：未找到库</h2><pre><code>poolobj = gcp(&#39;nocreate&#39;);
+addAttachedFiles(MyPool,&#123;&#39;libepanet.dll&#39;,&#39;epanet2.h&#39;&#125;)
+</code></pre><h2 id="error2-变量无法识别"><a href="#error2-变量无法识别" class="headerlink" title="error2:变量无法识别"></a>error2:变量无法识别</h2><p>解决 parfor 循环中的<a href="[https://www.mathworks.com/help/coder/ug/classification-of-variables-in-parfor-loops.html?searchHighlight=parfor%20variables&amp;s_tid=doc_srchtitle](https://www.mathworks.com/help/coder/ug/classification-of-variables-in-parfor-loops.html?searchHighlight=parfor variables&amp;s_tid=doc_srchtitle">变量分类</a>)问题</p>
+<blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Classification</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loop</td>
+<td>Serves as a loop index for arrays</td>
+</tr>
+<tr>
+<td>Sliced</td>
+<td>An array whose segments are operated on by different iterations of the loop</td>
+</tr>
+<tr>
+<td>Broadcast</td>
+<td>A variable defined before the loop whose value is used inside the loop, but not assigned inside the loop</td>
+</tr>
+<tr>
+<td>Reduction</td>
+<td>Accumulates a value across iterations of the loop, regardless of iteration order</td>
+</tr>
+<tr>
+<td>Temporary</td>
+<td>A variable created inside the loop, but unlike sliced or reduction variables, not available outside the loop</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note:</p>
+<p><em>Fixed Index Listing</em>. Within the first-level parentheses of a sliced variable’s indexing, <strong>the list of indices is the same</strong> for all occurrences of a given variable.</p>
+<p>Variable <code>B</code> on the left is not sliced because <code>B</code> is indexed by <code>i</code> and <code>i+1</code> in different places. Variable <code>B</code> on the right is sliced.</p>
+<p>| <code>parfor i = 1:10  B(i) = B(i+1) + 1; end</code> | <code>parfor i = 1:10  B(i+1) = B(i+1) + 1; end</code> |</p>
+</blockquote>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/enjoyyl/article/details/41929033">https://blog.csdn.net/enjoyyl/article/details/41929033</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/07/coronavirus1/" rel="prev" title="新冠肺炎记录">
+      <i class="fa fa-chevron-left"></i> 新冠肺炎记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/19/onboard/" rel="next" title="新鲜感">
+      新鲜感 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">实现并行计算的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Parallel-Computing-Toolbox"><span class="nav-number">1.1.</span> <span class="nav-text">Parallel Computing Toolbox</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8Cfor%E5%BE%AA%E7%8E%AF%EF%BC%9Aparfor"><span class="nav-number">2.</span> <span class="nav-text">并行for循环：parfor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#error1%EF%BC%9A%E6%9C%AA%E6%89%BE%E5%88%B0%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">error1：未找到库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#error2-%E5%8F%98%E9%87%8F%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">error2:变量无法识别</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xyz</p>
+  <div class="site-description" itemprop="description">Connect the dots</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xyz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Complete SQL Mastery | Code with Mosh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL Notes">
+<meta property="og:url" content="http://yoursite.com/2021/02/06/Complete-SQL-Mastery-Notes20210206/index.html">
+<meta property="og:site_name" content="xy&#39;s blog">
+<meta property="og:description" content="Complete SQL Mastery | Code with Mosh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2021/02/06/Complete-SQL-Mastery-Notes20210206/Users/zhanxy3/AppData/Roaming/Typora/typora-user-images/image-20210124150008961.png">
+<meta property="article:published_time" content="2021-02-06T12:52:11.000Z">
+<meta property="article:modified_time" content="2021-02-06T14:48:17.159Z">
+<meta property="article:author" content="xyz">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/02/06/Complete-SQL-Mastery-Notes20210206/Users/zhanxy3/AppData/Roaming/Typora/typora-user-images/image-20210124150008961.png">
+
+<link rel="canonical" href="http://yoursite.com/2021/02/06/Complete-SQL-Mastery-Notes20210206/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>MySQL Notes | xy's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xy's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/06/Complete-SQL-Mastery-Notes20210206/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xyz">
+      <meta itemprop="description" content="Connect the dots">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xy's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL Notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 20:52:11 / Modified: 22:48:17" itemprop="dateCreated datePublished" datetime="2021-02-06T20:52:11+08:00">2021-02-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://codewithmosh.com/p/complete-sql-mastery">Complete SQL Mastery | Code with Mosh</a></p>
+<span id="more"></span>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>SQL database</p>
+<p>Relational DBMS: table and relationship</p>
+<p>NoSQL</p>
+<p>MySQL or MySequal</p>
+<h1 id="2-在单一表中检索数据："><a href="#2-在单一表中检索数据：" class="headerlink" title="2. 在单一表中检索数据："></a>2. 在单一表中检索数据：</h1><h3 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">USE sql_store; -- 或者双击选中</span><br><span class="line">SELECT * -- return all columns</span><br><span class="line">FROM customers;</span><br><span class="line"></span><br><span class="line">SELECT first_name, last_name FROM customers;</span><br></pre></td></tr></table></figure>
+<h3 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers WHERE customer_id=1 ORDER BY first_name; -- order of each clause matters</span><br><span class="line">SELECT </span><br><span class="line">	first_name, </span><br><span class="line">	points,</span><br><span class="line">    (points+10)*100 AS &#x27;discount factor&#x27;</span><br><span class="line">FROM customers;</span><br><span class="line">SELECT DISTINCT state FROM customers; -- 不重复</span><br><span class="line">SELECT DISTINCT state FROM customers WHERE state!=&#x27;va&#x27;; -- 大小写不敏感</span><br></pre></td></tr></table></figure>
+<h3 id="AND-OR-NOT"><a href="#AND-OR-NOT" class="headerlink" title="AND, OR, NOT"></a>AND, OR, NOT</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 优先级 and or</span><br><span class="line">-- WHERE NOT (birth_date &gt;&#x27;1990-01-01&#x27; OR points &lt;=1000) 依次取反</span><br><span class="line">-- WHERE birth_date &lt;=&#x27;1990-01-01&#x27; AND points &gt; 1000 </span><br></pre></td></tr></table></figure>
+<h3 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM custormers WHERE state IN (&#x27;VA&#x27;,&#x27;FL&#x27;,&#x27;GA&#x27;); -- 一个属性与列表比较</span><br></pre></td></tr></table></figure>
+<h3 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers WHERE birth_date BETWEEN &#x27;1990-01-01&#x27; AND &#x27;2000-01-01&#x27;; -- 包含两端</span><br></pre></td></tr></table></figure>
+<h3 id="LIKE-模糊查找"><a href="#LIKE-模糊查找" class="headerlink" title="LIKE 模糊查找"></a>LIKE 模糊查找</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> customers <span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;b%&#x27;</span>; </span><br><span class="line"><span class="string">&#x27;%b%&#x27;</span></span><br><span class="line"><span class="string">&#x27;b____y&#x27;</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> customers <span class="keyword">WHERE</span> address <span class="keyword">LIKE</span> <span class="string">&#x27;%trail%&#x27;</span> <span class="keyword">OR</span> address <span class="keyword">LIKE</span> <span class="string">&#x27;%AVENUE%&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> customers <span class="keyword">WHERE</span> phone <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%9&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><code>%</code> : any character (zero or more)</p>
+<p><code>_</code>: one character</p>
+<h3 id="REGEXP-通配符"><a href="#REGEXP-通配符" class="headerlink" title="REGEXP 通配符"></a>REGEXP 通配符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers WHERE last_name REGEXP &#x27;field&#x27;</span><br><span class="line">&#x27;field$|mac|ch&#x27;</span><br><span class="line">&#x27;[gim]e&#x27; ge,ie,me</span><br><span class="line">&#x27;[a-h]e&#x27; </span><br></pre></td></tr></table></figure>
+<p>^:  begin with</p>
+<p>$: end with</p>
+<p>|: logical or/ multiple search pattern</p>
+<p>[ ]: single character in </p>
+<h3 id="IS-NULL"><a href="#IS-NULL" class="headerlink" title="IS NULL"></a>IS NULL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM orders WHERE shipped_date IS NULL; -- is NOT NULL</span><br></pre></td></tr></table></figure>
+<p>primary key: unique and </p>
+<h3 id="ORDER-BY-排序"><a href="#ORDER-BY-排序" class="headerlink" title="ORDER BY 排序"></a>ORDER BY 排序</h3><p>Mysql可以用任意列排序，不管是否选中了该列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT *, unit_price*quantity as total_price FROM order_items WHERE order_id=2 ORDER BY total_price DESC;</span><br></pre></td></tr></table></figure>
+<h3 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM customers LIMIT 300;</span><br><span class="line">SELECT * FROM customers LIMIT 6, 3;-- offset, num to show; show 7.8.9</span><br><span class="line">SELECT * FROM customers ORDER BY points DESC LIMIT 3; -- LIMIT 顺序永远在最后 </span><br></pre></td></tr></table></figure>
+<h1 id="3-在多个表中检索数据"><a href="#3-在多个表中检索数据" class="headerlink" title="3. 在多个表中检索数据"></a>3. 在多个表中检索数据</h1><h2 id="Inner-Joins"><a href="#Inner-Joins" class="headerlink" title="Inner Joins"></a>Inner Joins</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM orders JOIN customers ON orders.customer_id=customers.customer_id; -- 默认inner join</span><br><span class="line"></span><br><span class="line">SELECT order_id, o.customer_id, first_name, last_name</span><br><span class="line"> FROM orders o</span><br><span class="line"> JOIN customers ON o.customer_id=customers.customer_id; -- use alias to simplify</span><br></pre></td></tr></table></figure>
+<h3 id="Joining-across-database"><a href="#Joining-across-database" class="headerlink" title="Joining across database"></a>Joining across database</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM order_items oi</span><br><span class="line">JOIN sql_inventory.products p ON oi. product_id=p.product_id; -- 跨库检索</span><br></pre></td></tr></table></figure>
+<h3 id="Self-Join"><a href="#Self-Join" class="headerlink" title="Self Join"></a>Self Join</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT e.employee_id,e.first_name, m.first_name AS manager</span><br><span class="line">	FROM employees e</span><br><span class="line">	JOIN employees m ON e.reports_to=m.employee_id; -- self join</span><br></pre></td></tr></table></figure>
+<h3 id="Joining-multiple-tables"><a href="#Joining-multiple-tables" class="headerlink" title="Joining multiple tables"></a>Joining multiple tables</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT p.date, p.invoice_id, p.amount, c.name as client_name, pm.name as payment_method</span><br><span class="line">FROM payments p</span><br><span class="line">JOIN clients c ON p.client_id=c.client_id</span><br><span class="line">JOIN payment_methods pm ON p.payment_method=pm.payment_method_id;</span><br></pre></td></tr></table></figure>
+<h3 id="Compound-join-conditions"><a href="#Compound-join-conditions" class="headerlink" title="Compound join conditions"></a>Compound join conditions</h3><p>复合主键 composite primary key: 包含多个主键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JOIN ... ON ... AND...</span><br></pre></td></tr></table></figure>
+<h3 id="Implicit-JOIN"><a href="#Implicit-JOIN" class="headerlink" title="Implicit JOIN"></a>Implicit JOIN</h3><p><strong>用explicit比较好！</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM orders </span><br><span class="line">JOIN customers ON orders.customer_id=customers.customer_id; </span><br><span class="line"></span><br><span class="line">-- implicit JOIN</span><br><span class="line">SELECT *</span><br><span class="line">FROM orders o, customers c</span><br><span class="line">WHERE o.customer_id=c.customer_id;</span><br></pre></td></tr></table></figure>
+<h2 id="Outer-Joins"><a href="#Outer-Joins" class="headerlink" title="Outer Joins"></a>Outer Joins</h2><p>LEFT JOIN: 无论是否匹配都返回左表的记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT p.product_id, p.name, oi.quantity</span><br><span class="line">FROM products p</span><br><span class="line">LEFT JOIN order_items oi </span><br><span class="line">ON p.product_id=oi.product_id; -- outer join</span><br></pre></td></tr></table></figure>
+<h3 id="outer-join-between-multiple-tables"><a href="#outer-join-between-multiple-tables" class="headerlink" title="outer join between multiple tables"></a>outer join between multiple tables</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT o.order_date, o.order_id, c.first_name, s.name as shipper, os.name as status</span><br><span class="line">FROM orders o</span><br><span class="line">JOIN customers c</span><br><span class="line">	ON o.customer_id=c.customer_id</span><br><span class="line">LEFT JOIN shippers s</span><br><span class="line">	ON o.shipper_id=s.shipper_id</span><br><span class="line">JOIN order_statuses os</span><br><span class="line">	ON o.status=os.order_status_id</span><br></pre></td></tr></table></figure>
+<h3 id="Self-Outer-JOIN"><a href="#Self-Outer-JOIN" class="headerlink" title="Self Outer JOIN"></a>Self Outer JOIN</h3><h2 id="Using-Clause"><a href="#Using-Clause" class="headerlink" title="Using Clause"></a>Using Clause</h2><p>如果列名一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM orders o</span><br><span class="line">JOIN customers c</span><br><span class="line">	USING (customer_id);</span><br><span class="line">	-- ON o.customer_id=c.customer_id</span><br><span class="line"></span><br><span class="line">SELECT p.date, c.name, p.amount, pm.name</span><br><span class="line">FROM payments p</span><br><span class="line">JOIN clients c</span><br><span class="line">	USING (client_id)</span><br><span class="line">JOIN payment_methods pm</span><br><span class="line">	ON p.payment_method=pm.payment_method_id;</span><br></pre></td></tr></table></figure>
+<h2 id="Natural-Join"><a href="#Natural-Join" class="headerlink" title="Natural Join"></a>Natural Join</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM orders o</span><br><span class="line">NATURAL JOIN customers c; -- 自动匹配相同列；不建议使用</span><br></pre></td></tr></table></figure>
+<h2 id="Cross-Join"><a href="#Cross-Join" class="headerlink" title="Cross Join"></a>Cross Join</h2><p>结果集将包括两个表中的所有行，其中结果集中的每一行都是第一个表中的行与第二个表中的行的组合。 当连接的表之间没有关系时，会使用这种情况。例如color和size组合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- CROSS JOIN</span><br><span class="line">-- explicit</span><br><span class="line">SELECT sh.name AS shipper, p.name AS product</span><br><span class="line">FROM shippers sh</span><br><span class="line">CROSS JOIN products p;</span><br><span class="line"></span><br><span class="line">-- implicit</span><br><span class="line">SELECT sh.name AS shipper, p.name AS product</span><br><span class="line">FROM shippers sh</span><br><span class="line">ORDER BY sh.name</span><br></pre></td></tr></table></figure>
+<h2 id="Unions"><a href="#Unions" class="headerlink" title="Unions"></a>Unions</h2><p>组合查询结果，注意列数要一致</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">	customer_id, first_name, points,</span><br><span class="line">	&#x27;Bronze&#x27; AS type</span><br><span class="line">FROM customers</span><br><span class="line">WHERE points&lt;2000</span><br><span class="line">UNION</span><br><span class="line">SELECT </span><br><span class="line">	customer_id, first_name, points,</span><br><span class="line">	&#x27;Silver&#x27; AS type</span><br><span class="line">FROM customers</span><br><span class="line">WHERE points between 2000 AND 3000</span><br><span class="line">UNION</span><br><span class="line">SELECT </span><br><span class="line">	customer_id, first_name, points,</span><br><span class="line">	&#x27;Gold&#x27; AS type</span><br><span class="line">FROM customers</span><br><span class="line">WHERE points&gt;=3000</span><br><span class="line">ORDER BY first_name</span><br></pre></td></tr></table></figure>
+<h1 id="4-增删改"><a href="#4-增删改" class="headerlink" title="4.增删改"></a>4.增删改</h1><p>NN: not null</p>
+<p>PK: primary key</p>
+<p>varchar: 长度可变的字符</p>
+<p>char：如果字符长度不足，会自动填充空格</p>
+<p>AI: auto increment</p>
+<p>Default: default value</p>
+<h2 id="Inserting-a-row"><a href="#Inserting-a-row" class="headerlink" title="Inserting a row"></a>Inserting a row</h2><p>提前设置默认值 （e.g. null)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers VALUES (DEFAULT,&#x27;John&#x27;,NULL,&#x27;CA&#x27;);</span><br><span class="line">INSERT INTO customers (name,state) VALUES (&#x27;John&#x27;,&#x27;CA&#x27;);</span><br></pre></td></tr></table></figure>
+<p>一次插入多行数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO shippers (name) VALUES (&#x27;Shipper1&#x27;) (&#x27;Shipper2&#x27;),(&#x27;Shipper3&#x27;);</span><br></pre></td></tr></table></figure>
+<p>Insert data to multiple tables/ hierarchical data</p>
+<p><code>last_insert_id</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO orders (customer_id,order_date,status) VALUES (1,&#x27;2021-1-1&#x27;,1);</span><br><span class="line">INSERT INTO order_items VALUES (LAST_INSERT_ID(),1,2,2.5);</span><br></pre></td></tr></table></figure>
+<p>CREATE a copy of a Table</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE orders_achived AS</span><br><span class="line">SELECT * FROM orders;</span><br></pre></td></tr></table></figure>
+<p>子查询语句 subquery</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE invoices_achived AS</span><br><span class="line">SELECT i.invoice_id, i.number, c.name, i.invoice_total, i.payment_total, i.invoice_date, i.due_date, i.payment_date </span><br><span class="line">FROM invoices i</span><br><span class="line">JOIN clients c ON c.client_id=i.client_id</span><br><span class="line">WHERE NOT (payment_date IS NULL) ;</span><br></pre></td></tr></table></figure>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><ol>
+<li><p>update single row</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE invoices</span><br><span class="line">SET payment_total=100</span><br><span class="line">WHERE invoice_id=6;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update multiple row</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE customers</span><br><span class="line">SET points=points+50</span><br><span class="line">WHERE birth_date&lt;&#x27;1990-01-01&#x27;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>subquery, 多条件用in，单条件用=</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UPDATE orders</span><br><span class="line">SET comments=&#x27;Gold customer&#x27;</span><br><span class="line">WHERE customer_id IN </span><br><span class="line">		(SELECT customer_id</span><br><span class="line">        FROM customers</span><br><span class="line">		WHERE points&gt;3000);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM invoices</span><br><span class="line">WHERE client_id=(</span><br><span class="line">			SELECT client_id </span><br><span class="line">			FROM clients </span><br><span class="line">            WHERE name=&#x27;Myworks&#x27;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h1 id="5-聚合函数"><a href="#5-聚合函数" class="headerlink" title="5.聚合函数"></a>5.聚合函数</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MAX()</span><br><span class="line">MIN()</span><br><span class="line">AVG()</span><br><span class="line">SUM()</span><br><span class="line">COUNT() --作用于所有非空记录</span><br><span class="line">SELECT </span><br><span class="line">	MAX(invoice_total) AS highest</span><br><span class="line">	COUNT(*) AS total_records --所有记录</span><br><span class="line">	COUNT(DISTINCT client_id) AS total_clients</span><br><span class="line">FROM invoices</span><br><span class="line">WHERE invoice_date&lt;&#x27;2019-07-01&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">	&#x27;Fist half of 2019&#x27; AS date_range,</span><br><span class="line">	SUM(invoice_total) AS total_sales,</span><br><span class="line">	SUM(payment_total) AS total_payments,</span><br><span class="line">	SUM(invoice_total) - SUM(payment_total) AS what_we_expect</span><br><span class="line">FROM invoices</span><br><span class="line">WHERE invoice_date&lt;&#x27;2019-07-01&#x27;</span><br><span class="line">UNION</span><br><span class="line">SELECT </span><br><span class="line">	&#x27;Second half of 2019&#x27; AS date_range,</span><br><span class="line">	SUM(invoice_total) AS total_sales,</span><br><span class="line">	SUM(payment_total) AS total_payments,</span><br><span class="line">	SUM(invoice_total- payment_total) AS what_we_expect</span><br><span class="line">FROM invoices</span><br><span class="line">WHERE invoice_date BETWEEN &#x27;2019-01-01&#x27; AND &#x27;2019-07-01&#x27;;</span><br></pre></td></tr></table></figure>
+<h2 id="Group-By"><a href="#Group-By" class="headerlink" title="Group By"></a>Group By</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">	p.date,</span><br><span class="line">	pm.name AS payment_method,</span><br><span class="line">	SUM(p.amount) AS total_payments</span><br><span class="line">FROM payments p</span><br><span class="line">JOIN payment_methods pm</span><br><span class="line">	ON p.payment_method=pm.payment_method_id</span><br><span class="line">GROUP BY p.date, payment_method</span><br><span class="line">ORDER BY p.date;</span><br></pre></td></tr></table></figure>
+<h2 id="Having"><a href="#Having" class="headerlink" title="Having"></a>Having</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- having 在group by后筛选，用到的列必须是select中选中的列, where用到的列可以是任意列</span><br><span class="line">SELECT </span><br><span class="line">client_id,</span><br><span class="line">SUM(invoice_total) AS total_sales,</span><br><span class="line">COUNT(*) AS number_of_invoices</span><br><span class="line">FROM invoices</span><br><span class="line">GROUP BY client_id</span><br><span class="line">HAVING total_sales &gt;500 AND number_of_invoices &gt;5;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">	c.customer_id,</span><br><span class="line">	c.first_name,</span><br><span class="line">	-- oi.order_id,</span><br><span class="line">    SUM(oi.quantity*oi.unit_price) AS total_sales</span><br><span class="line">FROM orders o</span><br><span class="line">JOIN order_items oi</span><br><span class="line">	USING (order_id)</span><br><span class="line">JOIN customers c</span><br><span class="line">	USING (customer_id)</span><br><span class="line">WHERE c.state=&#x27;VA&#x27;</span><br><span class="line">GROUP BY -- 使用了聚合函数，group by要包含所有field</span><br><span class="line">	c.customer_id,</span><br><span class="line">	c.first_name</span><br><span class="line">HAVING total_sales&gt;100;</span><br></pre></td></tr></table></figure>
+<h2 id="With-Rollup"><a href="#With-Rollup" class="headerlink" title="With Rollup"></a>With Rollup</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- with rollup 汇总</span><br><span class="line">SELECT </span><br><span class="line">	pm.name AS payment_method,</span><br><span class="line">	SUM(p.amount) AS total</span><br><span class="line">FROM payments p</span><br><span class="line">JOIN payment_methods pm</span><br><span class="line">ON p.payment_method=pm.payment_method_id</span><br><span class="line">GROUP BY pm.name WITH ROLLUP -- 有with rollup的话不能用别名</span><br><span class="line">ORDER BY total;</span><br></pre></td></tr></table></figure>
+<h1 id="6-复杂查询"><a href="#6-复杂查询" class="headerlink" title="6.复杂查询"></a>6.复杂查询</h1><h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM employees</span><br><span class="line">WHERE salary &gt; (SELECT AVG(salary) FROM employees);</span><br><span class="line"></span><br><span class="line">-- 子查询返回多个值</span><br><span class="line">USE sql_invoicing;</span><br><span class="line">SELECT * </span><br><span class="line">FROM clients</span><br><span class="line">WHERE client_id NOT IN (</span><br><span class="line">                SELECT DISTINCT client_id</span><br><span class="line">				FROM invoices</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>用join代替子查询，考虑可读性和性能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- subquery</span><br><span class="line">USE sql_store;</span><br><span class="line">SELECT customer_id,first_name,last_name</span><br><span class="line">FROM customers c</span><br><span class="line">WHERE customer_id IN (</span><br><span class="line">		SELECT DISTINCT customer_id </span><br><span class="line">        FROM order_items oi</span><br><span class="line">        JOIN orders o</span><br><span class="line">        USING (ORDER_ID)</span><br><span class="line">        WHERE product_id=3</span><br><span class="line">                );</span><br><span class="line"></span><br><span class="line">-- join</span><br><span class="line">USE sql_store;</span><br><span class="line">SELECT DISTINCT customer_id,first_name,last_name</span><br><span class="line">FROM customers c</span><br><span class="line">JOIN orders o</span><br><span class="line">	USING (customer_id)</span><br><span class="line">JOIN order_items oi</span><br><span class="line">	USING (order_id)</span><br><span class="line">WHERE oi.product_id=3;</span><br></pre></td></tr></table></figure>
+<p>ALL, ANY, SOME<br>— &gt; ALL() 相当于 &gt; MAX()<br>— IN () 相当于 = ANY()</p>
+<h3 id="CORRELATED-SUB-QUERY"><a href="#CORRELATED-SUB-QUERY" class="headerlink" title="CORRELATED SUB-QUERY"></a>CORRELATED SUB-QUERY</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- CORRELATED SUB-QUERY 在主查询的每条记录都进行一次相关子查询</span><br><span class="line">USE sql_invoicing;</span><br><span class="line">SELECT *</span><br><span class="line">FROM invoices i</span><br><span class="line">WHERE invoice_total&gt; (</span><br><span class="line">		SELECT AVG(invoice_total)</span><br><span class="line">		FROM invoices</span><br><span class="line">		WHERE client_id=i.client_id);</span><br></pre></td></tr></table></figure>
+<h3 id="Exists"><a href="#Exists" class="headerlink" title="Exists"></a>Exists</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-- exists 不将所有结果返回外部查询，避免返回大 结果集，适合多结果的集合</span><br><span class="line">SELECT *</span><br><span class="line">FROM clients c</span><br><span class="line">WHERE EXISTS (</span><br><span class="line">	SELECT client_id</span><br><span class="line">	FROM invoices</span><br><span class="line">	WHERE client_id=c.client_id</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">USE sql_store;</span><br><span class="line">SELECT *</span><br><span class="line">FROM products p</span><br><span class="line">WHERE NOT EXISTS (</span><br><span class="line">		SELECT product_id</span><br><span class="line">		FROM order_items</span><br><span class="line">		WHERE product_id=p.product_id</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<h3 id="在select中使用子查询"><a href="#在select中使用子查询" class="headerlink" title="在select中使用子查询"></a>在select中使用子查询</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- 复杂查询,在select中使用子查询</span><br><span class="line">SELECT client_id, name, </span><br><span class="line">	(SELECT SUM(invoice_total) FROM invoices WHERE client_id=c.client_id) AS total_sales,</span><br><span class="line">    (SELECT AVG(invoice_total) FROM invoices) AS average,</span><br><span class="line">    (SELECT total_sales) -(SELECT average) AS difference</span><br><span class="line">FROM clients c;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="在from中使用子查询"><a href="#在from中使用子查询" class="headerlink" title="在from中使用子查询"></a>在from中使用子查询</h3><p>需要增加别名<br>FROM () AS </p>
+<h1 id="7-基础内建函数"><a href="#7-基础内建函数" class="headerlink" title="7.基础内建函数"></a>7.基础内建函数</h1><ul>
+<li>ROUND()</li>
+<li>TRUNCATE()</li>
+<li>EILING() — 大于等于这个数的最小整数</li>
+<li>FLOOR() — 小于等于这个数的最小整数</li>
+<li>ABS()</li>
+<li>RAND()</li>
+</ul>
+<h2 id="String-functions"><a href="#String-functions" class="headerlink" title="String functions"></a>String functions</h2><ul>
+<li>LENGTH()</li>
+<li>UPPER()</li>
+<li>LOWER()</li>
+<li>LTRIM()  —LEFT TRIM</li>
+<li>RTRIM()</li>
+<li><p>TRIM()</p>
+</li>
+<li><p>LEFT()</p>
+</li>
+<li>RIGHT()</li>
+<li>SUBSTRING()</li>
+<li><p>LOACTE(‘n’,’kindergarten’) — not case sensitive</p>
+</li>
+<li><p>REPLACE()</p>
+</li>
+<li>CONCATE()</li>
+</ul>
+<h2 id="Time-Date"><a href="#Time-Date" class="headerlink" title="Time/Date"></a>Time/Date</h2><p>NOW()<br>CURDATE()<br>CURTIME()<br>YEAR()<br>MONTH() — INTERGER<br>MONTHNAME() — STRING</p>
+<p>EXTRACT (YEAR FROM NOW())<br>DATE_FORMAT(NOW(),’&amp;M &amp;Y’)<br>TIME_FORMAT(NOW(),’%h:%i %p’)</p>
+<p>DATE_ADD(NOW(),INTERVAL 1 YEAR)<br>DATE_ADD(NOW(),INTERVAL -1 YEAR)<br>DATE_SUB(NOW(),INTERVAL 1 YEAR)</p>
+<p>DATEDIFF(‘2019-01-01’,’2020-01-01’)<br>TIME_TO_SEC()</p>
+<p>IFNULL(shipper_id,’not assigned’) — 将null替换为其他值<br>COALESCE() — 返回第一个不为null的值</p>
+<h2 id="IF"><a href="#IF" class="headerlink" title="IF"></a>IF</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- if()</span><br><span class="line">SELECT </span><br><span class="line">	oi.product_id, </span><br><span class="line">	p.name,</span><br><span class="line">	count(*) AS orders,</span><br><span class="line">    IF(COUNT(*)=1,&#x27;Once&#x27;,&#x27;Many times&#x27;) AS frequency</span><br><span class="line">FROM order_items oi</span><br><span class="line">JOIN products p</span><br><span class="line">USING (product_id)</span><br><span class="line">GROUP BY oi.product_id, p.name</span><br></pre></td></tr></table></figure>
+<h2 id="case-when…-then…"><a href="#case-when…-then…" class="headerlink" title="case when…  then…"></a>case when…  then…</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- case when ... then ...</span><br><span class="line">SELECT CONCAT(first_name,&#x27; &#x27;,last_name) AS customer,</span><br><span class="line">		points,</span><br><span class="line">		CASE</span><br><span class="line">			WHEN points&gt;3000 THEN &#x27;Gold&#x27;</span><br><span class="line">			WHEN points BETWEEN 2000 AND 3000 THEN &#x27;silver&#x27;</span><br><span class="line">			WHEN points&lt;2000 THEN &#x27;bronze&#x27;</span><br><span class="line">		END AS category</span><br><span class="line">FROM customers</span><br><span class="line">ORDER BY points DESC;</span><br></pre></td></tr></table></figure>
+<h1 id="8-视图"><a href="#8-视图" class="headerlink" title="8.视图"></a>8.视图</h1><h2 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h2><p>跟表格一样使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW clients_balance AS</span><br><span class="line">SELECT i.client_id AS client_id,</span><br><span class="line">		c.name AS name,</span><br><span class="line">		SUM(i.invoice_total-i.payment_total) AS balance</span><br><span class="line">FROM invoices i</span><br><span class="line">JOIN clients c</span><br><span class="line">		USING (client_id)</span><br><span class="line">GROUP BY client_id;</span><br></pre></td></tr></table></figure>
+<p>updatable view: </p>
+<ul>
+<li>Distinct</li>
+<li>sum, min, max</li>
+<li>group by</li>
+<li>union</li>
+</ul>
+<p>views的好处</p>
+<ul>
+<li><p>简化查询</p>
+</li>
+<li><p>减少修改带来的影响（例如修改原表的列名后，可以通过view修改，这样后续查询不受影响-类似函数</p>
+</li>
+<li><p>防止对源数据的访问</p>
+</li>
+</ul>
+<p>不要在存储过程中加入太多逻辑验证，难以管理。在程序中验证输入。</p>
+<p>函数只能返回单一值</p>
+<p>函数特性：</p>
+<p>deterministic<br>reads sql data<br>modifies sql data</p>
+<h1 id="9-存储过程"><a href="#9-存储过程" class="headerlink" title="9.存储过程"></a>9.存储过程</h1><h2 id="create-call-drop"><a href="#create-call-drop" class="headerlink" title="create/call/drop"></a>create/call/drop</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS get_payments;</span><br><span class="line">DELIMITER $$ -- 修改分隔符</span><br><span class="line">USE `sql_invoicing`$$</span><br><span class="line">CREATE PROCEDURE `get_payments`()</span><br><span class="line">BEGIN</span><br><span class="line">	select * from payments;</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ; -- 还原分隔符</span><br><span class="line">-- 或者右键create procedure</span><br><span class="line"></span><br><span class="line">-- call调用</span><br><span class="line">call get_payments;</span><br></pre></td></tr></table></figure>
+<h2 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">-- 输入参数</span><br><span class="line">DROP PROCEDURE IF EXISTS get_clients_by_state;</span><br><span class="line">DELIMITER $$</span><br><span class="line">CREATE PROCEDURE get_clients_by_state</span><br><span class="line">(</span><br><span class="line">	state char(2)</span><br><span class="line">)</span><br><span class="line">begin</span><br><span class="line">	select * from clients c</span><br><span class="line">	where c.state=state;</span><br><span class="line">end$$</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 判断参数</span><br><span class="line">DELIMITER $$</span><br><span class="line">CREATE DEFINER=`root`@`localhost` PROCEDURE `get_payments`(	client_id INT,</span><br><span class="line">payment_method_id TINYINT)</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT * FROM payments p</span><br><span class="line">    WHERE p.client_id=IFNULL(client_id,p.client_id) AND</span><br><span class="line">    p.payment_method=IFNULL(payment_method_id,p.payment_id); -- 如果输入参数为null，则返回所有</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">-- 输出错误代码</span><br><span class="line">DELIMITER $$</span><br><span class="line">CREATE DEFINER=`root`@`localhost` PROCEDURE `make_payment`(</span><br><span class="line">invoice_id INT,</span><br><span class="line">payment_amount DECIMAL(9,2),</span><br><span class="line">payment_date DATE)</span><br><span class="line">BEGIN</span><br><span class="line">	IF payment_amount&lt;=0 THEN</span><br><span class="line">		SIGNAL SQLSTATE &#x27;22003&#x27;;</span><br><span class="line">		SET MESAAGE_TEXT=&#x27;Invalid Payment amount&#x27;;</span><br><span class="line">    END IF;</span><br><span class="line">	UPDATE invoices i</span><br><span class="line">    SET</span><br><span class="line">		 i.payment_total=payment_amount,</span><br><span class="line">		 i.payment_date=payment_date</span><br><span class="line">     WHERE</span><br><span class="line">		invoice_id=invoice_id;</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">-- 参数前加out关键字，select into，使用输出参数读取数据</span><br></pre></td></tr></table></figure>
+<h2 id="variable"><a href="#variable" class="headerlink" title="variable"></a>variable</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-- User or session variable，客户端与数据库中断时，内存释放</span><br><span class="line">Set @invoices_count=0; -- 存在内存中的变量</span><br><span class="line">-- local varible (inside procedure) 存储过程结束时，内存释放</span><br><span class="line">DELIMITER $$</span><br><span class="line">CREATE DEFINER=`root`@`localhost` PROCEDURE `get_risk_factor`()</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE risk_factor DECIMAL(9,2) DEFAULT 0; -- 声明变量</span><br><span class="line">	DECLARE invoices_total DECIMAL(9,2);</span><br><span class="line">	DECLARE invoices_count INT;</span><br><span class="line">	SELECT COUNT(*),SUM(invoice_total)</span><br><span class="line">	INTO invoices_count,invoices_total</span><br><span class="line">	FROM invoices;</span><br><span class="line">	SET risk_factor=invoices_total/invoices_count*5;</span><br><span class="line">	SELECT risk_factor;</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $$</span><br><span class="line">CREATE DEFINER=`root`@`localhost` FUNCTION `get_risk_fact`(client_id INT) RETURNS INT</span><br><span class="line">    READS SQL DATA</span><br><span class="line">BEGIN</span><br><span class="line">	DECLARE risk_factor DECIMAL(9,2) DEFAULT 0;</span><br><span class="line">	DECLARE invoices_total DECIMAL(9,2);</span><br><span class="line">	DECLARE invoices_count INT;</span><br><span class="line">	SELECT COUNT(*),SUM(invoice_total)</span><br><span class="line">	INTO invoices_count,invoices_total</span><br><span class="line">	FROM invoices i</span><br><span class="line">    WHERE i.client_id=client_id;</span><br><span class="line">	SET risk_factor=invoices_total/invoices_count*5;</span><br><span class="line">	RETURN IFNULL(risk_factor,0);</span><br><span class="line">END$$</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<p>调用function：select</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	client_id,</span><br><span class="line">    name,</span><br><span class="line">    get_risk_factor_for_client(client_id) as risk_factor</span><br><span class="line">FROM clients;</span><br><span class="line"></span><br><span class="line">DROP FUNCTION IF EXISTS get_risk_factor_for_client;</span><br></pre></td></tr></table></figure>
+<h1 id="10-触发和事件"><a href="#10-触发和事件" class="headerlink" title="10.触发和事件"></a>10.触发和事件</h1><h2 id="Trigger"><a href="#Trigger" class="headerlink" title="Trigger"></a>Trigger</h2><p>确保数据更新:满足条件时触发，并执行语句（insert/update/delete</p>
+<p>-OLD</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER $$</span><br><span class="line">DROP TRIGGER IF EXISTS payments_after_delete;</span><br><span class="line">CREATE TRIGGER payments_after_delete</span><br><span class="line">AFTER DELETE ON payments</span><br><span class="line">FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line"> UPDATE invoices</span><br><span class="line"> SET payment_total=payment_total-OLD.amount</span><br><span class="line"> WHERE invoice_id=OLD.invoice_id; -- 删除触发器，old.columnname; new.columnname 新增行的某列数据</span><br><span class="line"> </span><br><span class="line"> INSERT INTO payments_audit</span><br><span class="line"> VALUES (OLD.client_id,OLD.date,OLD.amount,&#x27;Delete&#x27;,now()); -- wrting logs</span><br><span class="line">END $$</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHOW TRIGGERS;</span><br><span class="line">SHOW TRIGGERS LIKE &#x27;payments%&#x27;;</span><br></pre></td></tr></table></figure>
+<h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><p>时间触发器，定时执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-- create</span><br><span class="line">SHOW VARIABLES LIKE &#x27;event%&#x27;;</span><br><span class="line">SET GLOBAL event_scheduler=&#x27;ON&#x27;;</span><br><span class="line"></span><br><span class="line">delimiter $$</span><br><span class="line">CREATE EVENT yearly_delete_stale_audit_rows</span><br><span class="line">ON SCHEDULE</span><br><span class="line">	-- at &#x27;2019-05-01&#x27;</span><br><span class="line">	EVERY 1 YEAR STARTS &#x27;2019-01-01&#x27; ENDS &#x27;2029-01-01&#x27;</span><br><span class="line">DO BEGIN</span><br><span class="line">	DELETE FROM payments_audit</span><br><span class="line">    WHERE action_date&lt;NOW()-INTERVAL 1 YEAR;</span><br><span class="line">END$$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">-- view and drop</span><br><span class="line">SHOW EVENTS;</span><br><span class="line">SHOW EVENTS LIKE &#x27;yearly%&#x27;; -- 命名时写明时间间隔</span><br><span class="line"></span><br><span class="line">-- Alter event</span><br><span class="line">ALTER EVENT yearly_delete_stale_audit_rows DISABLE;</span><br><span class="line">ALTER EVENT yearly_delete_stale_audit_rows ENABLE;</span><br></pre></td></tr></table></figure>
+<h1 id="11-Transaction"><a href="#11-Transaction" class="headerlink" title="11.Transaction"></a>11.Transaction</h1><h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><p>都执行/都不执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-- Transaction</span><br><span class="line">USE sql_store;</span><br><span class="line">START TRANSACTION;</span><br><span class="line">INSERT INTO orders (customer_id, order_date,status)</span><br><span class="line">VALUES(1,&#x27;2019-05-01&#x27;,1);</span><br><span class="line">INSERT INTO order_items</span><br><span class="line">VALUES (LAST_INSERT_ID(),1,1,1);</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">SHOW VARIABLES LIKE &#x27;autocommit&#x27;; -- 除非显式的开启事务（BEGIN 或 START TRANSACTION），否则每个查询都被当做一个单独的事务自动执行</span><br><span class="line"></span><br><span class="line">-- set isolation level</span><br><span class="line">SHOW VARIABLES LIKE &#x27;transaction_isolation&#x27;;</span><br><span class="line">SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;</span><br><span class="line">SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;</span><br><span class="line">SET GLOBAL TRANSACTION ISOLATION LEVEL SERIALIZABLE;</span><br></pre></td></tr></table></figure>
+<p>transaction条件 ACID</p>
+<ul>
+<li><p>Atomicity: 所有语句都成功执行才结束，否则回滚</p>
+</li>
+<li><p>Consistency</p>
+</li>
+<li><p>Isolation：如果多个事务修改同一个数据，记录会锁定，只有结束一个事务才会开始下一个</p>
+</li>
+<li><p>Durability：事务提交后，修改是永久的</p>
+</li>
+</ul>
+<h2 id="concurrency-and-locking"><a href="#concurrency-and-locking" class="headerlink" title="concurrency and locking"></a>concurrency and locking</h2><p>默认锁定机制：两个transaction同时修改一个数据，会锁定，直到事务提交或回滚</p>
+<h2 id="并发出现的问题"><a href="#并发出现的问题" class="headerlink" title="并发出现的问题"></a>并发出现的问题</h2><ol>
+<li><p>lost updates：两个事务同时更新一个数据，后提交的事务会覆盖前面的修改</p>
+</li>
+<li><p>dirty reads: read uncommitted data from other transaction 读取到未提交的数据</p>
+</li>
+</ol>
+<ul>
+<li>read committed</li>
+</ul>
+<ol>
+<li><p>Non-repeating Reads：两次读取不一样</p>
+</li>
+<li><p>phantom reads 幻读-其他事务修改数据影响当前查询，但当前查询没有读取到</p>
+<p><img src="/2021/02/06/Complete-SQL-Mastery-Notes20210206/Users\zhanxy3\AppData\Roaming\Typora\typora-user-images\image-20210124150008961.png" alt="image-20210124150008961"></p>
+<p>序列化 serializable 牺牲性能和扩展性</p>
+</li>
+</ol>
+<h2 id="isolation-levels-of-transaction"><a href="#isolation-levels-of-transaction" class="headerlink" title="isolation levels of transaction"></a>isolation levels of transaction</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>isolation level</th>
+<th>Lost Updates</th>
+<th>Dirty Reads</th>
+<th>Non-repeating Reads</th>
+<th>Phantom Reads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read uncommitted</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>read committed</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>repeatable reads</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>serializable</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>高等级的隔离等级会减少更多并发问题，速度快，但牺牲性能和扩展性</p>
+<p>mysql默认的是repeatable reads</p>
+<p>deadlock：两个事务相互影响</p>
+<h1 id="12-Data-types"><a href="#12-Data-types" class="headerlink" title="12. Data types"></a>12. Data types</h1><h2 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h2><ul>
+<li><p>char(x)</p>
+</li>
+<li><p>varchar(x):可变长度</p>
+<ul>
+<li>varchar (50): name password</li>
+<li>varchar(255): </li>
+</ul>
+</li>
+<li><p>mediumtext max:16MB</p>
+</li>
+<li><p>longtext max:4GB</p>
+</li>
+</ul>
+<h2 id="intergers"><a href="#intergers" class="headerlink" title="intergers"></a>intergers</h2><ul>
+<li>tinyint 1b [-128,127]: age</li>
+<li>unsigned tinyint [0,255] 正值</li>
+</ul>
+<h2 id="zerofill"><a href="#zerofill" class="headerlink" title="zerofill"></a>zerofill</h2><p>int(4):0001</p>
+<h2 id="rationals"><a href="#rationals" class="headerlink" title="rationals"></a>rationals</h2><p>decimal(p,s) 总位数，小数位</p>
+<p>科学计算中特别大，特别小的数</p>
+<p>float 4b</p>
+<p>double 8b</p>
+<h2 id="booleans"><a href="#booleans" class="headerlink" title="booleans"></a>booleans</h2><p>bool</p>
+<p>boolean</p>
+<h2 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h2><p>枚举，可重复性差</p>
+<p>enum(‘small’,’medium’,’large’)</p>
+<h2 id="date-time"><a href="#date-time" class="headerlink" title="date/time"></a>date/time</h2><p>timestamp 4b (up to 2038)</p>
+<h2 id="BLOBS"><a href="#BLOBS" class="headerlink" title="BLOBS"></a>BLOBS</h2><p>Binary Large Objects,即大型二进制对象</p>
+<h2 id="JSON-type"><a href="#JSON-type" class="headerlink" title="JSON type"></a>JSON type</h2><p>json_object()</p>
+<p>json_array()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select product_id,json_extract(propertites,&#x27;$.weight&#x27;) as weight</span><br><span class="line">from products</span><br><span class="line">where product_id=1</span><br></pre></td></tr></table></figure>
+<p>$当前路径</p>
+<p>. 访问路径</p>
+<p>列路径操作符-&gt;</p>
+<p>properties-&gt;’$.manufacturer.name’</p>
+<p>json_set</p>
+<p>json_remove</p>
+<h1 id="13-数据库设计"><a href="#13-数据库设计" class="headerlink" title="13.数据库设计"></a>13.数据库设计</h1><p>data modelling</p>
+<ol>
+<li><p>understand the requirements</p>
+</li>
+<li><p>conceptual model</p>
+</li>
+<li><p>logical model</p>
+</li>
+<li><p>physical model</p>
+</li>
+</ol>
+<h2 id="conceptual-model"><a href="#conceptual-model" class="headerlink" title="conceptual model"></a>conceptual model</h2><p>entities and their relationship</p>
+<p>entities relationship (ER) or UML</p>
+<p>Tools: visio, draw.io, lucidCharts</p>
+<h2 id="logical-model"><a href="#logical-model" class="headerlink" title="logical model"></a>logical model</h2><p>type of attribute, 独立于数据库系统</p>
+<p>relationship: one to one, one to many, many to many</p>
+<h2 id="physical-model"><a href="#physical-model" class="headerlink" title="physical model"></a>physical model</h2><p>联合主键</p>
+<p>Notnull, auto-increment</p>
+<p>set foreign keys constraints: on update/on delete - set null, restrict, no action, cascade</p>
+<h2 id="normalization"><a href="#normalization" class="headerlink" title="normalization"></a>normalization</h2><p>1st normal form 第一范式</p>
+<p>多对多关系：建立中间连接表</p>
+<p>第二范式：没有依赖任何关系的其他子集的非主键字段；每个表只能代表一个实体entity，且所有列均为该实体的属性；</p>
+<p>第三范式：all the attributes should be determined by the prime </p>
+<p>a column in a table should not be derived from other columns</p>
+<p><strong>remove redundancy</strong></p>
+<p><strong>Don’t jump into creating tables</strong></p>
+<p>Don’t model the universe!</p>
+<p>不要为了不存在的未来需求将设计复杂化</p>
+<p>forward engineer</p>
+<h2 id="create-database-table"><a href="#create-database-table" class="headerlink" title="create database/table"></a>create database/table</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS sql_store2;</span><br><span class="line">USE sql_store2;</span><br><span class="line">CREATE TABLE IF NOT EXISTS customers (</span><br><span class="line">    customer_id INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    first_name VARCHAR(15) NOT NULL,</span><br><span class="line">    points INT NOT NULL DEFAULT 0,</span><br><span class="line">    email VARCHAR(255) NOT NULL UNIQUE</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">-- alter</span><br><span class="line">ALTER TABLE customers</span><br><span class="line">	ADD last_name 	VARCHAR(50) NOT NULL AFTER first_name,</span><br><span class="line">	ADD city 		VARCHAR(50) NOT NULL,</span><br><span class="line">	MODIFY COLUMN first_name VARCHAR(50) DEFAULT &#x27;&#x27;,</span><br><span class="line">	DROP points;</span><br><span class="line">    </span><br><span class="line">DROP TABLE IF EXISTS orders;</span><br><span class="line">CREATE TABLE orders</span><br><span class="line">(</span><br><span class="line">	order_id INT PRIMARY KEY, </span><br><span class="line">	customer_id INT NOT NULL,</span><br><span class="line">    FOREIGN KEY fk_orders_customers (customer_id)</span><br><span class="line">    REFERENCES customers (customer_id)</span><br><span class="line">    ON UPDATE CASCADE</span><br><span class="line">    ON DELETE NO ACTION</span><br><span class="line">);-- primary key 默认not null</span><br><span class="line"></span><br><span class="line">-- character set</span><br><span class="line">ALTER table table1</span><br><span class="line">CHARACTER SET latin1;</span><br></pre></td></tr></table></figure>
+<h1 id="14-Indexing-for-high-performance"><a href="#14-Indexing-for-high-performance" class="headerlink" title="14.Indexing for high performance"></a>14.Indexing for high performance</h1><p>indexes are usually stored as binary tree</p>
+<h2 id="creating-indexes"><a href="#creating-indexes" class="headerlink" title="creating indexes"></a>creating indexes</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX idx_state ON customers (state);</span><br><span class="line">DROP INDEX idx_state ON customers;</span><br><span class="line"></span><br><span class="line">SHOW INDEXES IN orders;</span><br><span class="line">EXPLAIN SELECT customer_id FROM customers WHERE state=&#x27;CA&#x27; AND points&gt;1000; -- rows scanned</span><br></pre></td></tr></table></figure>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>前缀索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- prefix indexes for string</span><br><span class="line">CREATE INDEX idx_lastname ON customers (last_name(5));</span><br><span class="line">-- 选择索引长度</span><br><span class="line">SELECT COUNT(DISTINCT LEFT(last_name,1)),</span><br><span class="line"> COUNT(DISTINCT LEFT(last_name,5)),</span><br><span class="line"> COUNT(DISTINCT LEFT(last_name,10))</span><br><span class="line">FROM customers;</span><br></pre></td></tr></table></figure>
+<p>为全文建立索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- full-text indexes /long articles</span><br><span class="line">CREATE FULLTEXT INDEX idx_title_body ON posts (title,body);</span><br><span class="line"></span><br><span class="line">SELECT *, MATCH (title, body) AGAINST (&#x27;react redux&#x27;)</span><br><span class="line">FROM posts</span><br><span class="line">WHERE MATCH (title, body) AGAINST (&#x27;react redux&#x27;);</span><br><span class="line">-- MATCH (title, body): relevance score</span><br></pre></td></tr></table></figure>
+<p>联合索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-- composite index</span><br><span class="line">CREATE INDEX idx_state_points ON customers (state,points);</span><br><span class="line">-- order of column: frequently-used column, high cardinality, take your queries into account</span><br><span class="line"></span><br><span class="line">-- 指定index</span><br><span class="line">EXPLAIN SELECT customer_id FROM customers USE INDEX (ID_STATE_POINTS) WHERE state=&#x27;CA&#x27; AND points&gt;1000; -- rows scanned</span><br><span class="line"></span><br><span class="line">-- when indexes are ignored</span><br><span class="line">-- select or/ 建立index, then union</span><br><span class="line">CREATE INDEX idx_points ON customers (points);</span><br><span class="line">explain select customer_id from customers</span><br><span class="line">where points+10&gt;2010; -- 扫描索引的所有记录 full index scan</span><br><span class="line">explain select customer_id from customers</span><br><span class="line">where points&gt;2000; -- 单独写索引</span><br></pre></td></tr></table></figure>
+<h2 id="using-indexes-for-sorting"><a href="#using-indexes-for-sorting" class="headerlink" title="using indexes for sorting"></a>using indexes for sorting</h2><p>建立组合索引(a,b)，排序</p>
+<p>使用索引排序：</p>
+<p>a</p>
+<p>a,b</p>
+<p>a DESC, b DESC</p>
+<p>a,c,b —全表扫描</p>
+<p>b —全表扫描</p>
+<p>While creating secondary index，mysql will include primary key</p>
+<p>如果只选择索引内的列(covering index)，则索引扫描；否则全表扫描</p>
+<h2 id="index-maintaining"><a href="#index-maintaining" class="headerlink" title="index maintaining"></a>index maintaining</h2><ul>
+<li><p>duplicate indexes</p>
+</li>
+<li><p>redundant indexes: (A,B)  (A) x</p>
+</li>
+</ul>
+<p>check existing indexes before creating</p>
+<h1 id="15-Users-and-privilege"><a href="#15-Users-and-privilege" class="headerlink" title="15. Users and privilege"></a>15. Users and privilege</h1><h2 id="Creating-a-user"><a href="#Creating-a-user" class="headerlink" title="Creating a user"></a>Creating a user</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- creating users</span><br><span class="line">CREATE USER john@localhost;-- host/domain name/ip address</span><br><span class="line">CREATE USER john@&#x27;%.localhost&#x27;; -- sub domain</span><br><span class="line">CREATE USER john IDENTIFIED BY &#x27;1234&#x27;;-- can connect anywhere, password</span><br><span class="line"></span><br><span class="line">-- viewing users</span><br><span class="line">select * from mysql.user;</span><br><span class="line">drop user bob@codewithmosh.com;</span><br><span class="line"></span><br><span class="line">set password for john =&#x27;1234&#x27;;</span><br><span class="line">set password =&#x27;1234&#x27;;</span><br></pre></td></tr></table></figure>
+<h2 id="Privilege"><a href="#Privilege" class="headerlink" title="Privilege"></a>Privilege</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- granting previleges</span><br><span class="line">-- 1: web/desktop application</span><br><span class="line">create user moon_app identified by &#x27;1234&#x27;;</span><br><span class="line">grant select, insert, update, delete, execute</span><br><span class="line">on sql_store.*</span><br><span class="line">to moon_app; -- also specify host, ip address, domain</span><br><span class="line">-- 2: admin</span><br><span class="line">grant all on *.* to john;</span><br><span class="line"></span><br><span class="line">-- viewing</span><br><span class="line">show grants for john;</span><br><span class="line">revoke create view on sql_strore.* from moon_app;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/19/onboard/" rel="prev" title="新鲜感">
+      <i class="fa fa-chevron-left"></i> 新鲜感
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/19/Geocoding-Visualization/" rel="next" title="Power BI中的地点/地图可视化 Geocoding Visualization in Power BI">
+      Power BI中的地点/地图可视化 Geocoding Visualization in Power BI <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%9C%A8%E5%8D%95%E4%B8%80%E8%A1%A8%E4%B8%AD%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">2. 在单一表中检索数据：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SELECT"><span class="nav-number">2.0.1.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WHERE"><span class="nav-number">2.0.2.</span> <span class="nav-text">WHERE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AND-OR-NOT"><span class="nav-number">2.0.3.</span> <span class="nav-text">AND, OR, NOT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IN"><span class="nav-number">2.0.4.</span> <span class="nav-text">IN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BETWEEN"><span class="nav-number">2.0.5.</span> <span class="nav-text">BETWEEN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LIKE-%E6%A8%A1%E7%B3%8A%E6%9F%A5%E6%89%BE"><span class="nav-number">2.0.6.</span> <span class="nav-text">LIKE 模糊查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REGEXP-%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="nav-number">2.0.7.</span> <span class="nav-text">REGEXP 通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IS-NULL"><span class="nav-number">2.0.8.</span> <span class="nav-text">IS NULL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ORDER-BY-%E6%8E%92%E5%BA%8F"><span class="nav-number">2.0.9.</span> <span class="nav-text">ORDER BY 排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LIMIT"><span class="nav-number">2.0.10.</span> <span class="nav-text">LIMIT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E8%A1%A8%E4%B8%AD%E6%A3%80%E7%B4%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">3. 在多个表中检索数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inner-Joins"><span class="nav-number">3.1.</span> <span class="nav-text">Inner Joins</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Joining-across-database"><span class="nav-number">3.1.1.</span> <span class="nav-text">Joining across database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Join"><span class="nav-number">3.1.2.</span> <span class="nav-text">Self Join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joining-multiple-tables"><span class="nav-number">3.1.3.</span> <span class="nav-text">Joining multiple tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compound-join-conditions"><span class="nav-number">3.1.4.</span> <span class="nav-text">Compound join conditions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implicit-JOIN"><span class="nav-number">3.1.5.</span> <span class="nav-text">Implicit JOIN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Outer-Joins"><span class="nav-number">3.2.</span> <span class="nav-text">Outer Joins</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#outer-join-between-multiple-tables"><span class="nav-number">3.2.1.</span> <span class="nav-text">outer join between multiple tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Outer-JOIN"><span class="nav-number">3.2.2.</span> <span class="nav-text">Self Outer JOIN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Clause"><span class="nav-number">3.3.</span> <span class="nav-text">Using Clause</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Natural-Join"><span class="nav-number">3.4.</span> <span class="nav-text">Natural Join</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cross-Join"><span class="nav-number">3.5.</span> <span class="nav-text">Cross Join</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unions"><span class="nav-number">3.6.</span> <span class="nav-text">Unions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="nav-number">4.</span> <span class="nav-text">4.增删改</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inserting-a-row"><span class="nav-number">4.1.</span> <span class="nav-text">Inserting a row</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update"><span class="nav-number">4.2.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Delete"><span class="nav-number">4.3.</span> <span class="nav-text">Delete</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">5.聚合函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Group-By"><span class="nav-number">5.1.</span> <span class="nav-text">Group By</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Having"><span class="nav-number">5.2.</span> <span class="nav-text">Having</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Rollup"><span class="nav-number">5.3.</span> <span class="nav-text">With Rollup</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.</span> <span class="nav-text">6.复杂查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.1.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CORRELATED-SUB-QUERY"><span class="nav-number">6.1.1.</span> <span class="nav-text">CORRELATED SUB-QUERY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exists"><span class="nav-number">6.1.2.</span> <span class="nav-text">Exists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8select%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.1.3.</span> <span class="nav-text">在select中使用子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8from%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.1.4.</span> <span class="nav-text">在from中使用子查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%9F%BA%E7%A1%80%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">7.基础内建函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-functions"><span class="nav-number">7.1.</span> <span class="nav-text">String functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Time-Date"><span class="nav-number">7.2.</span> <span class="nav-text">Time&#x2F;Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IF"><span class="nav-number">7.3.</span> <span class="nav-text">IF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#case-when%E2%80%A6-then%E2%80%A6"><span class="nav-number">7.4.</span> <span class="nav-text">case when…  then…</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E8%A7%86%E5%9B%BE"><span class="nav-number">8.</span> <span class="nav-text">8.视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE"><span class="nav-number">8.1.</span> <span class="nav-text">创建视图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">9.存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create-call-drop"><span class="nav-number">9.1.</span> <span class="nav-text">create&#x2F;call&#x2F;drop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="nav-number">9.2.</span> <span class="nav-text">输入参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variable"><span class="nav-number">9.3.</span> <span class="nav-text">variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">9.4.</span> <span class="nav-text">Function</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E8%A7%A6%E5%8F%91%E5%92%8C%E4%BA%8B%E4%BB%B6"><span class="nav-number">10.</span> <span class="nav-text">10.触发和事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Trigger"><span class="nav-number">10.1.</span> <span class="nav-text">Trigger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event"><span class="nav-number">10.2.</span> <span class="nav-text">Event</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-Transaction"><span class="nav-number">11.</span> <span class="nav-text">11.Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create"><span class="nav-number">11.1.</span> <span class="nav-text">create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#concurrency-and-locking"><span class="nav-number">11.2.</span> <span class="nav-text">concurrency and locking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">11.3.</span> <span class="nav-text">并发出现的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isolation-levels-of-transaction"><span class="nav-number">11.4.</span> <span class="nav-text">isolation levels of transaction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-Data-types"><span class="nav-number">12.</span> <span class="nav-text">12. Data types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Strings"><span class="nav-number">12.1.</span> <span class="nav-text">Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#intergers"><span class="nav-number">12.2.</span> <span class="nav-text">intergers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zerofill"><span class="nav-number">12.3.</span> <span class="nav-text">zerofill</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rationals"><span class="nav-number">12.4.</span> <span class="nav-text">rationals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#booleans"><span class="nav-number">12.5.</span> <span class="nav-text">booleans</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum"><span class="nav-number">12.6.</span> <span class="nav-text">enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date-time"><span class="nav-number">12.7.</span> <span class="nav-text">date&#x2F;time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLOBS"><span class="nav-number">12.8.</span> <span class="nav-text">BLOBS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-type"><span class="nav-number">12.9.</span> <span class="nav-text">JSON type</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">13.</span> <span class="nav-text">13.数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#conceptual-model"><span class="nav-number">13.1.</span> <span class="nav-text">conceptual model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logical-model"><span class="nav-number">13.2.</span> <span class="nav-text">logical model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#physical-model"><span class="nav-number">13.3.</span> <span class="nav-text">physical model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normalization"><span class="nav-number">13.4.</span> <span class="nav-text">normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-database-table"><span class="nav-number">13.5.</span> <span class="nav-text">create database&#x2F;table</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-Indexing-for-high-performance"><span class="nav-number">14.</span> <span class="nav-text">14.Indexing for high performance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#creating-indexes"><span class="nav-number">14.1.</span> <span class="nav-text">creating indexes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">14.1.1.</span> <span class="nav-text">string</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#using-indexes-for-sorting"><span class="nav-number">14.2.</span> <span class="nav-text">using indexes for sorting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index-maintaining"><span class="nav-number">14.3.</span> <span class="nav-text">index maintaining</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-Users-and-privilege"><span class="nav-number">15.</span> <span class="nav-text">15. Users and privilege</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-a-user"><span class="nav-number">15.1.</span> <span class="nav-text">Creating a user</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Privilege"><span class="nav-number">15.2.</span> <span class="nav-text">Privilege</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xyz</p>
+  <div class="site-description" itemprop="description">Connect the dots</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xyz</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
