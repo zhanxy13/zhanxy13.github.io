@@ -197,7 +197,6 @@
 <li>数据图层中地点的层次顺序</li>
 </ol>
 <span id="more"></span>
-
 <p>Case：地点总数较多（30k+，基本超出了Power BI的地点数量限制），分为不同类别，部分类别的点数量较少，且该类别比较重要。在Power BI Map中由于数据点的数量限制，地图会将临近位置点合并，仅显示“representative points”，导致部分重要类别的位置合并（high density sampling）。比较理想的展示是，地图将重要类别的点全部保留，而其他类别的合并。另一种更合理的做法是，先将地点进行合理的聚类，然后再做地点的可视化展示。</p>
 <p>Power BI中有个地图相关的可视化图：Map，Azure Map, ArcGIS Map，分别有不同的地点数量限制。</p>
 <h1 id="Map-Data-Point-Limits"><a href="#Map-Data-Point-Limits" class="headerlink" title="Map Data-Point Limits"></a>Map Data-Point Limits</h1><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><ul>
@@ -225,20 +224,21 @@
 </blockquote>
 <p> “<em>accurate distribution</em> of the data is the goal, and implied visual density is <em>not</em> the goal.” </p>
 <p>注意点的分布不一定反映真实密度，因为一个点可能代表多个数据点</p>
-<p>**<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-high-density-scatter-charts#how-high-density-scatter-charts-work">算法</a>**：设定半径r，每个点的半径r范围内的点合并成一个，逐渐增加r，直到点的总数达到3500</p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-high-density-scatter-charts#how-high-density-scatter-charts-work">算法</a></strong>：设定半径r，每个点的半径r范围内的点合并成一个，逐渐增加r，直到点的总数达到3500</p>
 <blockquote>
-<p>        <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-high-density-scatter-charts">Note</a><br>       Data points are grouped or selected by the index. Having a legend does not affect sampling for the algorithm, it only affects the ordering of the visual.</p>
-<p>       根据index 进行采样，跟legend无关</p>
-</blockquote>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-data-points#dynamic-limits">Dynamic limits</a><br>visuals with two hierarchies of grouping columns (axis and legend, or category and series) use one additional strategy called dynamic limits. Dynamic limits are designed to better balance data points.<br>会从所有类别中选择数据点</p>
+<pre><code>    [Note](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-high-density-scatter-charts)
+   Data points are grouped or selected by the index. Having a legend does not affect sampling for the algorithm, it only affects the ordering of the visual.
+
+   根据index 进行采样，跟legend无关
+</code></pre><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-data-points#dynamic-limits">Dynamic limits</a><br>visuals with two hierarchies of grouping columns (axis and legend, or category and series) use one additional strategy called dynamic limits. Dynamic limits are designed to better balance data points.<br>会从所有类别中选择数据点</p>
 </blockquote>
 <h2 id="Maps-Azure-Maps"><a href="#Maps-Azure-Maps" class="headerlink" title="Maps: Azure Maps"></a>Maps: Azure Maps</h2><ul>
 <li>Max     points: 30,000</li>
 <li>Azure Maps中国区不适用……</li>
 </ul>
 <p>See <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-high-density-sampling">High density sampling</a></p>
-<h2 id="ArcGIS-for-Power-BI"><a href="#ArcGIS-for-Power-BI" class="headerlink" title="ArcGIS for Power BI"></a>ArcGIS for Power BI</h2><table>
+<h2 id="ArcGIS-for-Power-BI"><a href="#ArcGIS-for-Power-BI" class="headerlink" title="ArcGIS for Power BI"></a>ArcGIS for Power BI</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>位置</th>
@@ -246,7 +246,8 @@
 <th>ArcGIS 组织帐户</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>位置</strong>字段井位中的地址信息</td>
 <td>3,500 个位置/地图<br>10,000 个位置/月</td>
 <td>10,000 个位置/地图<br>1,000,000 个位置/月</td>
@@ -281,7 +282,9 @@
 <td>5,000 个面/地图</td>
 <td>5,000 个面/地图</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h1><p>ArcGIS Map使用经纬度的时候点的数量限制是30k，因此先用Bing Map API进行地理编码，获得经纬度，然后用ArcGIS Map做可视化</p>
 <h2 id="数据图层中点的层次顺序"><a href="#数据图层中点的层次顺序" class="headerlink" title="数据图层中点的层次顺序"></a>数据图层中点的层次顺序</h2><ul>
 <li>ArcGIS地图可以包含各种<a target="_blank" rel="noopener" href="https://doc.arcgis.com/zh-cn/power-bi/design/work-with-layers.htm">图层</a>，但一幅地图只能包含一个数据图层。位置可以显示为点或面。</li>
