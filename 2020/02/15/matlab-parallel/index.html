@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"zhanxy13.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="实现并行计算的方式 有些工具箱内嵌多线程 Parallel Computing Toolbox MATLAB Parallel Server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matlab并行计算">
-<meta property="og:url" content="http://yoursite.com/2020/02/15/matlab-parallel/index.html">
+<meta property="og:url" content="https://zhanxy13.github.io/2020/02/15/matlab-parallel/index.html">
 <meta property="og:site_name" content="xy&#39;s blog">
 <meta property="og:description" content="实现并行计算的方式 有些工具箱内嵌多线程 Parallel Computing Toolbox MATLAB Parallel Server">
 <meta property="og:locale" content="en_US">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/15/matlab-parallel/">
+<link rel="canonical" href="https://zhanxy13.github.io/2020/02/15/matlab-parallel/">
 
 
 <script id="page-configurations">
@@ -100,6 +100,7 @@
       <h1 class="site-title">xy's blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
+      <p class="site-subtitle" itemprop="description">Connect the dots</p>
   </div>
 
   <div class="site-nav-right">
@@ -156,12 +157,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/matlab-parallel/">
+    <link itemprop="mainEntityOfPage" href="https://zhanxy13.github.io/2020/02/15/matlab-parallel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="xyz">
-      <meta itemprop="description" content="Connect the dots">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -189,14 +190,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span></span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>NaN:aN</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -218,10 +219,10 @@
 <li><p>下载工具箱</p>
 </li>
 <li><p>初始化Matlab并行计算环境：<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/parallel-computing/parpool.html">parpool</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parpool(poolsize)</span><br><span class="line">MyPool=parpool(2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">parpool</span>(<span class="variable">poolsize</span>)</span></span><br><span class="line"><span class="variable">MyPool</span>=<span class="function"><span class="title">parpool</span>(<span class="number">2</span>)</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>终止并行计算环境<br>（1）parallel设置中“终止时间” 或（2）命令行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete(MyPool)</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">delete</span><span class="params">(MyPool)</span></span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="并行for循环：parfor"><a href="#并行for循环：parfor" class="headerlink" title="并行for循环：parfor"></a>并行for循环：parfor</h1><p>parfor将循环迭代分组，每个worker执行一部分</p>
@@ -283,7 +284,7 @@ addAttachedFiles(MyPool,&#123;&#39;libepanet.dll&#39;,&#39;epanet2.h&#39;&#125;)
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://yoursite.com/2020/02/15/matlab-parallel/" title="Matlab并行计算">http://yoursite.com/2020/02/15/matlab-parallel/</a>
+    <a href="https://zhanxy13.github.io/2020/02/15/matlab-parallel/" title="Matlab并行计算">https://zhanxy13.github.io/2020/02/15/matlab-parallel/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -375,7 +376,7 @@ addAttachedFiles(MyPool,&#123;&#39;libepanet.dll&#39;,&#39;epanet2.h&#39;&#125;)
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">xyz</p>
-  <div class="site-description" itemprop="description">Connect the dots</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -387,8 +388,10 @@ addAttachedFiles(MyPool,&#123;&#39;libepanet.dll&#39;,&#39;epanet2.h&#39;&#125;)
         </a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
